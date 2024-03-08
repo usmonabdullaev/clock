@@ -5,119 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Abdullaev Usmon" />
     <title>Clock App</title>
-    <style>
-      body {
-        background-color: rgb(44, 44, 44);
-      }
-      .circle-1 {
-        width: 60px;
-        height: 60px;
-        background-color: rgb(255, 72, 5);
-        border-radius: 50%;
-        position: absolute;
-        transform: translate(-150px, -40px);
-      }
-      .circle-2 {
-        width: 100px;
-        height: 100px;
-        background-color: rgb(7, 196, 0);
-        border-radius: 50%;
-        position: absolute;
-        transform: translate(150px, 50px);
-      }
-      .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 50px;
-      }
-      .block {
-        width: 300px;
-        height: 300px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .clock {
-        border: 1px solid rgba(255, 255, 255, 0.247);
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        backdrop-filter: blur(10px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgba(240, 248, 255, 0.062);
-      }
-      .b {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: white;
-        position: absolute;
-      }
-      .h {
-        height: 50%;
-        width: 15px;
-        position: absolute;
-      }
-      .hh {
-        background-color: rgb(228, 28, 55);
-        height: 50%;
-        width: 100%;
-        border-radius: 10px;
-      }
-      .m {
-        height: 76%;
-        width: 10px;
-        position: absolute;
-      }
-      .mm {
-        background-color: rgb(71, 71, 255);
-        height: 50%;
-        width: 100%;
-        border-radius: 10px;
-      }
-      .s {
-        height: 98%;
-        width: 5px;
-        position: absolute;
-      }
-      .ss {
-        background-color: white;
-        height: 60%;
-        width: 100%;
-        border-radius: 10px;
-      }
-      i {
-        height: 100%;
-        width: 40px;
-        position: absolute;
-        text-align: center;
-        font-weight: bold;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
-
   <body>
     <div class="container">
       <div class="block">
         <div class="circle-1"></div>
         <div class="circle-2"></div>
         <div class="clock">
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
+          <i><b>12</b></i>
+          <i>•</i>
+          <i>•</i>
+          <i
+            ><b style="transform: rotate(-90deg); display: inline-block"
+              >3</b
+            ></i
+          >
+          <i>•</i>
+          <i>•</i>
+          <i
+            ><b style="transform: rotate(180deg); display: inline-block"
+              >6</b
+            ></i
+          >
+          <i>•</i>
+          <i>•</i>
+          <i
+            ><b style="transform: rotate(90deg); display: inline-block">9</b></i
+          >
+          <i>•</i>
+          <i>•</i>
           <b class="b"></b>
           <div class="h">
             <div class="hh"></div>
@@ -132,35 +49,6 @@
       </div>
     </div>
 
-    <script>
-      const hEl = document.querySelector(".h");
-      const mEl = document.querySelector(".m");
-      const sEl = document.querySelector(".s");
-      const iEls = document.querySelectorAll("i");
-
-      iEls.forEach((i, index) => {
-        i.textContent = "•";
-        if (index === 0) i.textContent = 12;
-        if (index === 3) i.textContent = 3;
-        if (index === 6) i.textContent = 6;
-        if (index === 9) i.textContent = 9;
-        i.style.transform = `rotate(${index * 30}deg)`;
-      });
-
-      const updateTime = (h, m, s) => {
-        hEl.style.transform = `rotate(${h * 30}deg)`;
-        mEl.style.transform = `rotate(${m * 6}deg)`;
-        sEl.style.transform = `rotate(${s * 6}deg)`;
-      };
-
-      setInterval(() => {
-        const date = new Date();
-        let h = date.getHours();
-        if (h > 12) h -= 12;
-        const m = date.getMinutes();
-        const s = date.getSeconds();
-        updateTime(h, m, s);
-      }, 500);
-    </script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
